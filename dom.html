@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tutorial JS #12: Manipulasi DOM</title>
+</head>
+<body>
+    <h2 id="judul">Judul Asli Sebelum Diubah</h2>
+    <p>Lihatlah bagaimana teks di atas akan berubah setelah script dijalankan.</p>
+
+    <script>
+        // 1. Dapatkan elemen <h2> berdasarkan ID-nya
+        const elemenJudul = document.getElementById("judul");
+
+        // 2. Ubah konten (teks) di dalam elemen tersebut
+        elemenJudul.textContent = "🥳 Judul Berhasil Diubah Oleh Javascript!";
+
+        // 3. Ubah warna teks
+        elemenJudul.style.color = "blue";
+    </script>
+</body>
+</html>

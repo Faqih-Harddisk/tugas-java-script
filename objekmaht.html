@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tutorial JS #13: Objek Math</title>
+</head>
+<body>
+    <h2>Penggunaan Objek Math</h2>
+    <p id="hasil"></p>
+
+    <script>
+        let angka = 4.7;
+        let hasilOutput = "";
+
+        // Menghitung angka acak (0 sampai < 1)
+        const angkaAcak = Math.random();
+
+        // Pembulatan ke atas
+        const bulatkanKeAtas = Math.ceil(angka); // Hasil: 5
+
+        // Mencari nilai terbesar
+        const nilaiMaksimum = Math.max(10, 5, 20, 8); // Hasil: 20
+
+        hasilOutput += `Angka Awal: ${angka} <br>`;
+        hasilOutput += `Pembulatan ke Atas (Math.ceil): **${bulatkanKeAtas}** <br>`;
+        hasilOutput += `Nilai Maksimum dari (10, 5, 20, 8): **${nilaiMaksimum}** <br>`;
+        hasilOutput += `Angka Acak (Math.random): **${angkaAcak.toFixed(4)}**`; // Dibuat 4 angka di belakang koma
+
+        // Tampilkan semua hasil ke dalam elemen <p>
+        document.getElementById("hasil").innerHTML = hasilOutput;
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tutorial JS #14: Menggunakan AJAX (Fetch)</title>
+</head>
+<body>
+    <h2>Data dari Server Asing (API)</h2>
+    <button onclick="ambilData()">Ambil Data Pengguna</button>
+    <p id="data-pengguna">... Data belum dimuat ...</p>
+
+    <script>
+        function ambilData() {
+            const url = 'https://jsonplaceholder.typicode.com/users/1';
+            const outputElement = document.getElementById('data-pengguna');
+
+            // Lakukan permintaan (request) menggunakan Fetch
+            fetch(url)
+                .then(response => {
+                    // Cek apakah request berhasil (status 200)
+                    if (!response.ok) {
+                        throw new Error('Gagal mengambil data, status: ' + response.status);
+                    }
+                    // Konversi response menjadi JSON
+                    return response.json();
+                })
+                .then(data => {
+                    // Data JSON yang sudah diurai tersedia di sini
+                    outputElement.innerHTML = `
+                        **Nama:** ${data.name} <br>
+                        **Email:** ${data.email} <br>
+                        **Kota:** ${data.address.city}
+                    `;
+                })
+                .catch(error => {
+                    // Tangani jika ada error (jaringan, dll.)
+                    outputElement.textContent = '❌ Terjadi error: ' + error.message;
+                    console.error('Error Fetch:', error);
+                });
+
+            outputElement.textContent = "⏳ Sedang memuat data...";
+        }
+    </script>
+</body>
+</html>

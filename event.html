@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tutorial JS #15: Memahami Event</title>
+</head>
+<body>
+    <h2>Memahami Event (Kejadian)</h2>
+
+    <button id="tombol-klik">Klik Saya!</button>
+    <p id="pesan">Anda belum mengklik tombol.</p>
+
+    <script>
+        // 1. Dapatkan elemen tombol dan elemen pesan
+        const tombol = document.getElementById('tombol-klik');
+        const pesan = document.getElementById('pesan');
+        let hitunganKlik = 0;
+
+        // 2. Definisikan fungsi yang akan dijalankan saat event terjadi
+        function tanganiKlik() {
+            hitunganKlik++;
+            pesan.textContent = `✅ Tombol telah diklik sebanyak **${hitunganKlik}** kali!`;
+            // Ubah warna tombol setiap kali diklik
+            tombol.style.backgroundColor = 'lightgreen'; 
+        }
+
+        // 3. Tambahkan event listener ke tombol
+        // Event: 'click', Fungsi yang dipanggil: tanganiKlik
+        tombol.addEventListener('click', tanganiKlik);
+    </script>
+</body>
+</html>
